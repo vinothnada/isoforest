@@ -24,7 +24,9 @@
     />
 
     <!-- Custom styles for this template -->
+    <!-- <link href="../css/sb-admin-2.min.css" rel="stylesheet" /> -->
     <link href="{{url_for('static',filename = 'style.css' )}}" rel="stylesheet" />
+    
 
     <!-- Custom styles for this page -->
     <link
@@ -139,56 +141,36 @@
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="userDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >{{username}}</span>
-                </a>
-                <!-- Dropdown - User Information -->
-                <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown"
-                >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
                   <a
-                    class="dropdown-item"
+                    class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"
                     href="#"
-                    data-toggle="modal"
-                    data-target="#logoutModal"
                   >
                     <i
                       class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
                     ></i>
                     Logout
-                  </a>
-                </div>
+                  </a>                
               </li>
             </ul>
           </nav>
           <!-- End of Topbar -->
-
+        <div class="container-fluid">
           <!-- Begin Page Content -->
           <!-- Page Heading -->
-          <h1 class="h3 mb-0 text-gray-800">Savings Transactions</h1>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Savings Transactions</h1>
+                        <form action="{{ url_for('view') }}" method="post" enctype="multipart/form-data">
+                          <input type="file" name="file"
+                                 accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                          <input type="submit" value="Upload" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:300px">
+                        </form>
+                        <form action="{{ url_for('iso_forest') }}" method="post" enctype="multipart/form-data">
+                          <input type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value="Generate">
+                        </form>                    
+                    </div>
+
+          <!-- Page Heading -->
+<!--           <h1 class="h3 mb-0 text-gray-800">Savings Transactions</h1>
           <form action="{{ url_for('view') }}" method="post" enctype="multipart/form-data">
             <input type="file" name="file"
                    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
@@ -196,7 +178,7 @@
           </form>
           <form action="{{ url_for('iso_forest') }}" method="post" enctype="multipart/form-data">
             <input type="submit" value="Generate">
-          </form>
+          </form> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
